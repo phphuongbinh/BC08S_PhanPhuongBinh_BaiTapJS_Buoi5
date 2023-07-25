@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <title>Title</title>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta
+      name="viewport"
+      content="width=device-width, initial-scale=1, shrink-to-fit=no"
+    />
+
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+      integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T"
+      crossorigin="anonymous"
+    />
+  </head>
+  <body class="mt-5 w-75 mx-auto shadow">
+    <div class="d-flex">
+      <div
+        class="nav flex-column nav-pills p-4 w-25 shadow-sm"
+        id="v-pills-tab"
+        role="tablist"
+        aria-orientation="vertical"
+      >
+        <a
+          class="nav-link active"
+          id="v-pills-home-tab"
+          data-toggle="pill"
+          href="#v-pills-home"
+          role="tab"
+          aria-controls="v-pills-home"
+          aria-selected="true"
+          >Quản lý tuyển sinh</a
+        >
+        <a
+          class="nav-link"
+          id="v-pills-profile-tab"
+          data-toggle="pill"
+          href="#v-pills-profile"
+          role="tab"
+          aria-controls="v-pills-profile"
+          aria-selected="false"
+          >Tính tiền điện</a
+        >
+        <a
+          class="nav-link"
+          id="v-pills-messages-tab"
+          data-toggle="pill"
+          href="#v-pills-messages"
+          role="tab"
+          aria-controls="v-pills-messages"
+          aria-selected="false"
+          >Tính thuế cá nhân</a
+        >
+        <a
+          class="nav-link"
+          id="v-pills-settings-tab"
+          data-toggle="pill"
+          href="#v-pills-settings"
+          role="tab"
+          aria-controls="v-pills-settings"
+          aria-selected="false"
+          >Tính tiền cáp</a
+        >
+      </div>
+      <div class="tab-content w-100" id="v-pills-tabContent">
+        <div
+          class="tab-pane p-4 fade show active"
+          id="v-pills-home"
+          role="tabpanel"
+          aria-labelledby="v-pills-home-tab"
+        >
+          <h2>Quản lý tuyển sinh</h2>
+          <div class="form row">
+            <div class="form-group w-25 col-4">
+              <label for="diemChuan">Điểm chuẩn</label>
+              <input
+                type="number"
+                class="form-control"
+                id="diemChuan"
+                placeholder="Nhập vào điểm chuẩn"
+                min="0"
+                max="30"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="khuVuc">Khu vực</label>
+              <select class="custom-select" name="khuVuc" id="khuVuc">
+                <option selected>Chọn khu vực</option>
+                <option value="khuVucA">A</option>
+                <option value="khuVucB">B</option>
+                <option value="khuVucC">C</option>
+              </select>
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="doiTuong">Đối tượng</label>
+              <select class="custom-select" id="doiTuong">
+                <option selected>Chọn đối tượng</option>
+                <option value="doiTuong1">1</option>
+                <option value="doiTuong2">2</option>
+                <option value="doiTuong3">3</option>
+              </select>
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="diemMonThuNhat">Điểm môn thứ nhất</label>
+              <input
+                type="number"
+                class="form-control"
+                id="diemMonThuNhat"
+                placeholder="Nhập điểm môn thứ nhất"
+                min="0"
+                max="10"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="diemMonThuHai">Điểm môn thứ hai</label>
+              <input
+                type="number"
+                class="form-control"
+                id="diemMonThuHai"
+                placeholder="Nhập điểm môn thứ hai"
+                min="0"
+                max="10"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="diemMonThuBa">Điểm môn thứ ba</label>
+              <input
+                type="number"
+                class="form-control"
+                id="diemMonThuBa"
+                placeholder="Nhập điểm môn thứ ba"
+                min="0"
+                max="10"
+              />
+            </div>
+            <div class="col-4">
+              <button
+                class="btn btn-success"
+                onclick="xuLyKetQuaTinhDiemSinhVien()"
+              >
+                Kết quả
+              </button>
+            </div>
+          </div>
+          <div class="mt-4 p-3 rounded d-none text-white" id="ketQua"></div>
+        </div>
+        <div
+          class="tab-pane fade p-4"
+          id="v-pills-profile"
+          role="tabpanel"
+          aria-labelledby="v-pills-profile-tab"
+        >
+          <h2>Tính tiền điện</h2>
+          <div class="form row">
+            <div class="form-group w-25 col-4">
+              <label for="hoTenNguoiDongTienDien">Họ và tên</label>
+              <input
+                type="text"
+                class="form-control"
+                id="hoTenNguoiDongTienDien"
+                placeholder="Nhập vào họ tên"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="soKw">Số kW</label>
+              <input
+                type="number"
+                class="form-control"
+                id="soKw"
+                placeholder="Nhập số kW"
+              />
+            </div>
+            <div class="col-6">
+              <button class="btn btn-success" onclick="xuLyTinhTienDien()">
+                Tính tiền điện
+              </button>
+            </div>
+          </div>
+          <div
+            class="mt-4 p-3 rounded d-none text-white"
+            id="ketQuaTienDien"
+          ></div>
+        </div>
+        <div
+          class="tab-pane p-4 fade"
+          id="v-pills-messages"
+          role="tabpanel"
+          aria-labelledby="v-pills-messages-tab"
+        >
+          <h2>Tính thuế thu nhập cá nhân</h2>
+          <div class="form row">
+            <div class="form-group w-25 col-4">
+              <label for="hoTenNguoiDongThue">Họ và tên</label>
+              <input
+                type="text"
+                class="form-control"
+                id="hoTenNguoiDongThue"
+                placeholder="Nhập vào họ tên"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="tongThuNhapNam">Tổng thu nhập năm</label>
+              <input
+                type="number"
+                class="form-control"
+                id="tongThuNhapNam"
+                placeholder="Nhập tổng thu nhập năm"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="soNguoiPhuThuoc">Số người phụ thuộc</label>
+              <input
+                type="number"
+                class="form-control"
+                id="soNguoiPhuThuoc"
+                placeholder="Nhập số người phụ thuộc"
+              />
+            </div>
+            <div class="col-6">
+              <button class="btn btn-success" onclick="xuLyTinhTienThue()">
+                Tính tiền thuế
+              </button>
+            </div>
+          </div>
+          <div
+            class="mt-4 p-3 rounded d-none text-white"
+            id="ketQuaTienThue"
+          ></div>
+        </div>
+        <div
+          class="tab-pane fade p-4"
+          id="v-pills-settings"
+          role="tabpanel"
+          aria-labelledby="v-pills-settings-tab"
+        >
+          <h2>Tính tiền cáp</h2>
+          <div class="form row">
+            <div class="form-group w-25 col-4">
+              <label for="loaiKhachHang">Loại khách hàng</label>
+              <select
+                onchange="thayDoiLoaiKhachHang()"
+                class="custom-select"
+                name="loaiKhachHang"
+                id="loaiKhachHang"
+              >
+                <option>Chọn loại khách hàng</option>
+                <option value="nhaDan">Nhà Dân</option>
+                <option value="doanhNghiep">Doanh Nghiệp</option>
+              </select>
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="maKhachHang">Mã khách hàng</label>
+              <input
+                type="number"
+                class="form-control"
+                id="maKhachHang"
+                placeholder="Nhập mã khách hàng"
+              />
+            </div>
+            <div class="form-group w-25 mb-3 col-4">
+              <label for="soKenhCaoCap">Số kênh cao cấp</label>
+              <input
+                type="number"
+                class="form-control"
+                id="soKenhCaoCap"
+                placeholder="Nhập số kênh cao cấp"
+              />
+            </div>
+            <div id="hideDiv" class="form-group w-25 mb-3 col-4 d-none">
+              <label for="soKetNoi">Số kết nối</label>
+              <input
+                type="number"
+                class="form-control"
+                id="soKetNoi"
+                placeholder="Nhập số kết nối"
+              />
+            </div>
+            <div class="col-12">
+              <button class="btn btn-success" onclick="xuLyTinhTienCap()">
+                Tính tiền cáp
+              </button>
+            </div>
+          </div>
+          <div
+            class="mt-4 p-3 rounded d-none text-white bg-success"
+            id="ketQuaTienCap"
+          ></div>
+        </div>
+      </div>
+    </div>
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script
+      src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+      integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+      integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+      crossorigin="anonymous"
+    ></script>
+    <script
+      src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+      integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./index.js"></script>
+  </body>
+</html>
